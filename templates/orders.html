@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Заказы{% endblock %}
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h2> Заказы</h2>
+    <a href="{{ url_for('order_create') }}" class="btn btn-success">+ Новый заказ</a>
+</div>
+<div class="card">
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr><th>ID</th><th>Объект</th><th>Адрес</th><th>Клиент</th><th>Статус</th><th>Дата</th><th></th></tr>
+            </thead>
+            <tbody>
+                {% for o in orders %}
+                <tr>
+                    <td>{{ o.id }}</td>
+                    <td>{{ o.name }}</td>
+                    <td>{{ o.address }}</td>
+                    <td>{{ o.client }}</td>
+                    <td><span class="badge bg-info">{{ o.status }}</span></td>
+                    <td>{{ o.plan_date }}</td>
+                    <td><a href="{{ url_for('order_detail', order_id=o.id) }}" class="btn btn-sm btn-outline-primary">👁️</a></td>
+                </tr>
+                {% else %}
+                <tr><td colspan="7" class="text-center">Заказов нет</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

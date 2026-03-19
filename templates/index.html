@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Главная{% endblock %}
+{% block content %}
+<h2 class="mb-4"> Панель управления</h2>
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card text-white bg-primary">
+            <div class="card-body text-center">
+                <h3>{{ stats.total }}</h3>
+                <p>Всего заказов</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-warning">
+            <div class="card-body text-center">
+                <h3>{{ stats.in_progress }}</h3>
+                <p>В работе</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-white bg-success">
+            <div class="card-body text-center">
+                <h3>{{ stats.completed }}</h3>
+                <p>Завершено</p>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="{{ url_for('orders_list') }}" class="btn btn-primary">Перейти к заказам →</a>
+{% endblock %}

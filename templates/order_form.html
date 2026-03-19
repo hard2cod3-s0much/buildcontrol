@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Новый заказ{% endblock %}
+{% block content %}
+<div class="card col-md-6 mx-auto">
+    <div class="card-header bg-primary text-white"> Новый заказ</div>
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Название объекта</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Адрес</label>
+                <input type="text" name="address" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Клиент</label>
+                <input type="text" name="client" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Плановая дата</label>
+                <input type="date" name="plan_date" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-success w-100">💾 Создать</button>
+        </form>
+        <a href="{{ url_for('orders_list') }}" class="btn btn-secondary w-100 mt-2">← Назад</a>
+    </div>
+</div>
+{% endblock %}
