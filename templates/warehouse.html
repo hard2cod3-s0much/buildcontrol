@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% block title %}Склад{% endblock %}
 {% block content %}
-<h2 class="mb-3"> Склад материалов</h2>
+<h2 class="mb-3">Склад материалов</h2>
 <div class="row">
     <div class="col-md-4">
         <div class="card">
-            <div class="card-header"> Добавить материал</div>
+            <div class="card-header">Поступление</div>
             <div class="card-body">
                 <form method="post">
+                    <input type="hidden" name="action" value="add">
                     <div class="mb-2">
                         <input type="text" name="name" class="form-control" placeholder="Название" required>
                     </div>
@@ -17,27 +18,35 @@
                     <div class="mb-2">
                         <input type="number" name="quantity" class="form-control" placeholder="Количество" min="1" required>
                     </div>
+                    <div class="mb-2">
+                        <input type="text" name="supplier" class="form-control" placeholder="Поставщик">
+                    </div>
                     <button type="submit" class="btn btn-success w-100">Добавить</button>
                 </form>
             </div>
         </div>
     </div>
     <div class="col-md-8">
-        <table class="table">
-            <thead><tr><th>Название</th><th>Ед.</th><th>Остаток</th><th>Зарезерв.</th></tr></thead>
-            <tbody>
-                {% for m in materials %}
-                <tr>
-                    <td>{{ m.name }}</td>
-                    <td>{{ m.unit }}</td>
-                    <td><strong>{{ m.quantity }}</strong></td>
-                    <td>{{ m.reserved }}</td>
-                </tr>
-                {% else %}
-                <tr><td colspan="4" class="text-center">Материалов нет</td></tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        <div class="card">
+            <div class="card-header">Остатки</div>
+            <div class="card-body">
+                <table class="table">
+                    <thead><tr><th>Название</th><th>Ед.</th><th>Остаток</th><th>Зарезерв.</th></tr></thead>
+                    <tbody>
+                        {% for m in materials %}
+                        <tr>
+                            <td>{{ m.name }}</td>
+                            <td>{{ m.unit }}</td>
+                            <td><strong>{{ m.quantity }}</strong></td>
+                            <td>{{ m.reserved }}</td>
+                        </tr>
+                        {% else %}
+                        <tr><td colspan="4" class="text-center">Материалов нет</td></tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

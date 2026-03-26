@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Отчёты{% endblock %}
+{% block content %}
+<h2 class="mb-3">Отчётность</h2>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-primary text-white">Реестр заказов</div>
+            <div class="card-body">
+                <a href="{{ url_for('export_orders') }}" class="btn btn-primary w-100">Скачать CSV</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-success text-white">Налоговая</div>
+            <div class="card-body">
+                <a href="{{ url_for('export_tax') }}" class="btn btn-success w-100">Скачать CSV</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-header bg-info text-white">Статистика</div>
+            <div class="card-body">
+                <a href="{{ url_for('export_statistics') }}" class="btn btn-info w-100">Скачать CSV</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
