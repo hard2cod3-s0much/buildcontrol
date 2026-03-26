@@ -2,9 +2,9 @@
 {% block title %}Новый заказ{% endblock %}
 {% block content %}
 <div class="card col-md-6 mx-auto">
-    <div class="card-header bg-primary text-white"> Новый заказ</div>
+    <div class="card-header bg-primary text-white">Новый заказ</div>
     <div class="card-body">
-        <form method="post">
+        <form method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label class="form-label">Название объекта</label>
                 <input type="text" name="name" class="form-control" required>
@@ -20,6 +20,10 @@
             <div class="mb-3">
                 <label class="form-label">Плановая дата</label>
                 <input type="date" name="plan_date" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Файл (эскиз, документ)</label>
+                <input type="file" name="file" class="form-control">
             </div>
             <button type="submit" class="btn btn-success w-100">💾 Создать</button>
         </form>
