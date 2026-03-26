@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block title %}Вход{% endblock %}
+{% block content %}
+<div class="card col-md-4 mx-auto mt-5">
+    <div class="card-header bg-primary text-white">Вход в систему</div>
+    <div class="card-body">
+        <form method="post">
+            <div class="mb-3">
+                <label class="form-label">Логин</label>
+                <input type="text" name="username" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Пароль</label>
+                <input type="password" name="password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Войти</button>
+        </form>
+        <div class="mt-3">
+            <small class="text-muted">
+                <strong>Тестовые учётки:</strong><br>
+                admin / admin123<br>
+                manager / manager123<br>
+                logist / logist123<br>
+                director / director123
+            </small>
+        </div>
+    </div>
+</div>
+{% endblock %}

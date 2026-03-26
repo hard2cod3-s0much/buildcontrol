@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
-{% block title %}Главная{% endblock %}
+{% block title %}Панель управления{% endblock %}
 {% block content %}
-<h2 class="mb-4"> Панель управления</h2>
+<h2 class="mb-4">Панель управления</h2>
 <div class="row mb-4">
     <div class="col-md-4">
         <div class="card text-white bg-primary">
             <div class="card-body text-center">
-                <h3>{{ stats.total }}</h3>
+                <h3>{{ stats.total_orders }}</h3>
                 <p>Всего заказов</p>
             </div>
         </div>
